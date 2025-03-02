@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Methods of Data Analysis and Machine Learning</title>
+    <title>Comprehensive Guide to Data Analysis and Machine Learning Techniques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
       :root {
         --primary-color: #3498db;
@@ -43,43 +44,50 @@
 
       nav {
         background-color: var(--secondary-color);
-        border-radius: 5px;
+        border-radius: 8px;
         overflow: hidden;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         position: sticky;
         top: 0;
         z-index: 100;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        padding: 0 10px;
       }
 
       nav ul {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         list-style-type: none;
         padding: 0;
         margin: 0;
-        overflow-x: auto;
-        white-space: nowrap;
       }
 
       nav ul li {
-        margin: 0;
+        margin: 0 2px;
       }
 
       nav ul li a {
         display: block;
         color: white;
         text-align: center;
-        padding: 14px 20px;
+        padding: 10px 16px;
         text-decoration: none;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: 6px;
+        margin: 4px 0;
       }
 
       nav ul li a:hover {
-        background-color: #34495e;
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
       }
 
       nav ul li a.active {
         background-color: var(--primary-color);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       }
 
       h2 {
@@ -148,14 +156,21 @@
         color: white;
         border: none;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         text-align: center;
-        line-height: 50px;
-        font-size: 20px;
+        line-height: 45px;
+        font-size: 18px;
         cursor: pointer;
         display: none;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+      }
+      
+      .back-to-top:hover {
+        background-color: #2980b9;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       }
 
       @media (max-width: 768px) {
@@ -172,8 +187,16 @@
         .category-description {
           font-size: 1rem;
         }
+        nav {
+          padding: 0 5px;
+        }
+        nav ul li {
+          margin: 0 1px;
+        }
         nav ul li a {
-          padding: 10px 15px;
+          padding: 8px 12px;
+          font-size: 0.85rem;
+          margin: 3px 0;
         }
       }
 
@@ -185,13 +208,25 @@
         th, td {
           min-width: 120px;
         }
+        nav {
+          padding: 0 3px;
+        }
+        nav ul li {
+          margin: 0;
+        }
+        nav ul li a {
+          padding: 6px 10px;
+          font-size: 0.8rem;
+          margin: 2px 0;
+          border-radius: 4px;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Data Analysis and Machine Learning Methods</h1>
-      <p class="subtitle">A comprehensive guide to various data analysis and machine learning techniques</p>
+      <h1>Comprehensive Guide to Data Analysis and Machine Learning Techniques</h1>
+      <p class="subtitle">An interactive reference of analytical methods, their characteristics, and real-world applications</p>
     </header>
 
     <nav id="navbar">
@@ -202,7 +237,7 @@
 
     <div id="methodCategories"></div>
 
-    <button id="backToTop" class="back-to-top" title="Back to top">↑</button>
+    <button id="backToTop" class="back-to-top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <footer>
       <p>© 2023 Data Analysis and Machine Learning Methods Guide</p>
@@ -218,7 +253,7 @@
           tableId: "clusteringTable",
           data: [
             {
-              method: "Word Embeddings + K-Means",
+              method: "Text-Based Semantic Clustering (Word2Vec + K-Means)",
               responseTime: "Fast",
               accuracy: "Good",
               strengths:
@@ -229,7 +264,7 @@
                 "E-commerce product categorization for large inventories",
             },
             {
-              method: "BERT Embeddings + Hierarchical Clustering",
+              method: "Contextual Hierarchical Document Clustering (BERT)",
               responseTime: "Slow",
               accuracy: "Excellent",
               strengths:
@@ -240,7 +275,7 @@
                 "Sentiment analysis in social media monitoring tools",
             },
             {
-              method: "LDA (Topic Modeling)",
+              method: "Latent Dirichlet Allocation (LDA) Topic Clustering",
               responseTime: "Moderate",
               accuracy: "Good for topics",
               strengths: "Uncovers latent themes, Interpretable results",
@@ -250,7 +285,7 @@
                 "Content recommendation systems for news websites",
             },
             {
-              method: "KNN (K-Nearest Neighbors)",
+              method: "Instance-Based Similarity Clustering (KNN)",
               responseTime: "Moderate",
               accuracy: "Good",
               strengths:
@@ -260,7 +295,7 @@
               productApplication: "Music recommendation in streaming services",
             },
             {
-              method: "SOM (Self-Organizing Maps)",
+              method: "Topological Feature Mapping (SOM)",
               responseTime: "Moderate",
               accuracy: "Good",
               strengths:
@@ -271,7 +306,7 @@
                 "Customer segmentation for targeted marketing campaigns",
             },
             {
-              method: "GMM (Gaussian Mixture Models)",
+              method: "Probabilistic Distribution Clustering (GMM)",
               responseTime: "Moderate",
               accuracy: "Excellent (for Gaussian data)",
               strengths:
@@ -282,7 +317,7 @@
                 "Anomaly detection in financial fraud prevention systems",
             },
             {
-              method: "DBSCAN",
+              method: "Density-Based Spatial Clustering (DBSCAN)",
               responseTime: "Can be slow for large datasets",
               accuracy: "Excellent",
               strengths:
@@ -301,7 +336,7 @@
           tableId: "mlTable",
           data: [
             {
-              method: "Random Forest",
+              method: "Ensemble Decision Tree Model (Random Forest)",
               responseTime: "Fast",
               accuracy: "Excellent",
               strengths:
@@ -311,7 +346,7 @@
               productApplication: "Predictive maintenance in manufacturing",
             },
             {
-              method: "Support Vector Machines (SVM)",
+              method: "Kernel-Based Classification (SVM)",
               responseTime: "Moderate",
               accuracy: "Good",
               strengths:
@@ -321,7 +356,7 @@
               productApplication: "Text classification for spam detection",
             },
             {
-              method: "Principal Component Analysis (PCA)",
+              method: "Linear Dimensionality Reduction (PCA)",
               responseTime: "Fast",
               accuracy: "N/A (Dimensionality reduction)",
               strengths:
@@ -332,7 +367,7 @@
                 "Feature extraction in facial recognition systems",
             },
             {
-              method: "Gradient Boosting",
+              method: "Sequential Ensemble Learning (Gradient Boosting)",
               responseTime: "Moderate",
               accuracy: "Excellent",
               strengths: "High performance, Handles different types of data",
@@ -342,7 +377,7 @@
                 "Click-through rate prediction in online advertising",
             },
             {
-              method: "XGBoost",
+              method: "Optimized Gradient Boosting Framework (XGBoost)",
               responseTime: "Fast",
               accuracy: "Excellent",
               strengths: "High performance, Handles imbalanced datasets well",
@@ -350,7 +385,7 @@
               productApplication: "Credit scoring in financial institutions",
             },
             {
-              method: "Naive Bayes",
+              method: "Probabilistic Classifier (Naive Bayes)",
               responseTime: "Very Fast",
               accuracy: "Good for certain types of problems",
               strengths:
@@ -360,7 +395,7 @@
               productApplication: "Email spam filtering",
             },
             {
-              method: "Decision Trees",
+              method: "Rule-Based Classification Tree (Decision Trees)",
               responseTime: "Fast",
               accuracy: "Good",
               strengths:
@@ -370,7 +405,7 @@
                 "Customer churn prediction in telecommunications",
             },
             {
-              method: "Logistic Regression",
+              method: "Binary Classification Model (Logistic Regression)",
               responseTime: "Fast",
               accuracy: "Good for linearly separable data",
               strengths:
@@ -380,7 +415,7 @@
               productApplication: "Credit risk assessment in banking",
             },
             {
-              method: "Linear Regression",
+              method: "Continuous Value Prediction (Linear Regression)",
               responseTime: "Very Fast",
               accuracy: "Good for linear relationships",
               strengths:
@@ -398,7 +433,7 @@
           tableId: "deepLearningTable",
           data: [
             {
-              method: "Neural Networks",
+              method: "Feed-Forward Neural Network (MLP)",
               responseTime: "Slow (training), Fast (inference)",
               accuracy: "Excellent (with sufficient data)",
               strengths:
@@ -407,7 +442,7 @@
               productApplication: "Image recognition in autonomous vehicles",
             },
             {
-              method: "Convolutional Neural Networks (CNN)",
+              method: "Spatial Feature Learning Network (CNN)",
               responseTime: "Slow (training), Fast (inference)",
               accuracy: "Excellent for image data",
               strengths:
@@ -417,7 +452,7 @@
               productApplication: "Image classification in medical diagnostics",
             },
             {
-              method: "Recurrent Neural Networks (RNN)",
+              method: "Sequential Memory Network (RNN)",
               responseTime: "Moderate to Slow",
               accuracy: "Good for sequential data",
               strengths:
@@ -427,7 +462,7 @@
               productApplication: "Natural language processing for chatbots",
             },
             {
-              method: "Long Short-Term Memory (LSTM)",
+              method: "Advanced Sequence Learning Network (LSTM)",
               responseTime: "Moderate to Slow",
               accuracy: "Excellent for long sequences",
               strengths:
@@ -437,7 +472,7 @@
                 "Stock market prediction based on historical data",
             },
             {
-              method: "Transformer",
+              method: "Attention-Based Sequence Model (Transformer)",
               responseTime: "Moderate (with proper hardware)",
               accuracy: "State-of-the-art for many NLP tasks",
               strengths:
@@ -448,7 +483,7 @@
                 "Large language models for content generation and analysis",
             },
             {
-              method: "Generative Adversarial Networks (GAN)",
+              method: "Creative Adversarial Network (GAN)",
               responseTime: "Slow (training), Fast (generation)",
               accuracy: "Varies (generative task)",
               strengths:
@@ -458,7 +493,7 @@
                 "Creating synthetic data for augmenting training sets",
             },
             {
-              method: "Autoencoders",
+              method: "Self-Encoding Compression Network (Autoencoders)",
               responseTime: "Moderate",
               accuracy: "Varies (unsupervised learning)",
               strengths:
@@ -476,7 +511,7 @@
           tableId: "recommendationTable",
           data: [
             {
-              method: "Collaborative Filtering",
+              method: "User-Based Preference Matching (Collaborative Filtering)",
               responseTime: "Fast to Moderate",
               accuracy: "Good",
               strengths:
@@ -487,7 +522,7 @@
                 "Movie recommendations on streaming platforms",
             },
             {
-              method: "Content-Based Filtering",
+              method: "Item Attribute Analysis (Content-Based Filtering)",
               responseTime: "Fast",
               accuracy: "Good for niche interests",
               strengths:
@@ -498,7 +533,7 @@
                 "News article recommendations based on reading history",
             },
             {
-              method: "Matrix Factorization",
+              method: "Latent Feature Decomposition (Matrix Factorization)",
               responseTime: "Moderate (training), Fast (inference)",
               accuracy: "Excellent",
               strengths:
@@ -508,7 +543,7 @@
               productApplication: "Product recommendations in e-commerce",
             },
             {
-              method: "Deep Learning-based Recommenders",
+              method: "Neural Network Recommendation System (Deep Learning)",
               responseTime: "Slow (training), Fast (inference)",
               accuracy: "Excellent",
               strengths:
@@ -519,7 +554,7 @@
                 "Personalized feed ranking in social media platforms",
             },
             {
-              method: "Hybrid Recommender Systems",
+              method: "Multi-Strategy Recommendation System (Hybrid)",
               responseTime: "Varies",
               accuracy: "Excellent",
               strengths:
@@ -530,7 +565,7 @@
                 "Personalized music playlists in streaming services",
             },
             {
-              method: "Two-Tower Model",
+              method: "Dual Encoder Recommendation (Two-Tower Model)",
               responseTime: "Fast (inference), Moderate (training)",
               accuracy: "Excellent",
               strengths:
@@ -549,7 +584,7 @@
           tableId: "nlpTable",
           data: [
             {
-              method: "Word2Vec",
+              method: "Distributed Word Representation (Word2Vec)",
               responseTime: "Fast",
               accuracy: "Good",
               strengths:
@@ -559,7 +594,7 @@
               productApplication: "Search query enhancement in e-commerce",
             },
             {
-              method: "BERT (Bidirectional Encoder Representations from Transformers)",
+              method: "Contextual Language Understanding Model (BERT)",
               responseTime: "Moderate",
               accuracy: "Excellent",
               strengths:
@@ -569,7 +604,7 @@
               productApplication: "Customer support chatbots with contextual understanding",
             },
             {
-              method: "GPT (Generative Pre-trained Transformer)",
+              method: "Autoregressive Language Generation (GPT)",
               responseTime: "Moderate to Slow",
               accuracy: "Excellent for generation tasks",
               strengths:
@@ -579,7 +614,7 @@
               productApplication: "Content creation assistants and conversational agents",
             },
             {
-              method: "Named Entity Recognition (NER)",
+              method: "Entity Extraction Framework (NER)",
               responseTime: "Fast",
               accuracy: "Good to Excellent",
               strengths:
@@ -589,7 +624,7 @@
               productApplication: "Automated information extraction from legal documents",
             },
             {
-              method: "Sentiment Analysis",
+              method: "Emotional Tone Analysis (Sentiment Analysis)",
               responseTime: "Fast",
               accuracy: "Good",
               strengths:
@@ -599,7 +634,7 @@
               productApplication: "Brand monitoring and reputation management",
             },
             {
-              method: "Text Summarization",
+              method: "Content Condensation System (Text Summarization)",
               responseTime: "Moderate",
               accuracy: "Varies by complexity",
               strengths:
@@ -609,7 +644,7 @@
               productApplication: "News digest creation and document summarization tools",
             },
             {
-              method: "Neural Machine Translation",
+              method: "Deep Sequence Translation System (Neural Machine Translation)",
               responseTime: "Fast (inference with optimized models)",
               accuracy: "Good to Excellent",
               strengths:
@@ -627,7 +662,7 @@
           tableId: "timeSeriesTable",
           data: [
             {
-              method: "ARIMA (Autoregressive Integrated Moving Average)",
+              method: "Statistical Temporal Modeling (ARIMA)",
               responseTime: "Fast",
               accuracy: "Good for stationary data",
               strengths:
@@ -637,7 +672,7 @@
               productApplication: "Financial forecasting for quarterly business planning",
             },
             {
-              method: "Prophet",
+              method: "Decomposition-Based Forecasting Framework (Prophet)",
               responseTime: "Fast",
               accuracy: "Good",
               strengths:
@@ -647,7 +682,7 @@
               productApplication: "Retail demand forecasting with seasonal variations",
             },
             {
-              method: "LSTM for Time Series",
+              method: "Recurrent Neural Network for Temporal Prediction (LSTM)",
               responseTime: "Moderate to Slow",
               accuracy: "Excellent for complex patterns",
               strengths:
@@ -657,7 +692,7 @@
               productApplication: "Energy consumption prediction for smart grids",
             },
             {
-              method: "Exponential Smoothing",
+              method: "Weighted Moving Average (Exponential Smoothing)",
               responseTime: "Very Fast",
               accuracy: "Good for short-term forecasts",
               strengths:
@@ -667,7 +702,7 @@
               productApplication: "Inventory management in supply chain",
             },
             {
-              method: "Temporal Convolutional Networks (TCN)",
+              method: "Causal Convolution Time Series Model (TCN)",
               responseTime: "Moderate",
               accuracy: "Excellent",
               strengths:
@@ -677,7 +712,7 @@
               productApplication: "Predictive maintenance in industrial equipment",
             },
             {
-              method: "Temporal Fusion Transformer",
+              method: "Multi-Horizon Attention Model (Temporal Fusion Transformer)",
               responseTime: "Moderate to Slow",
               accuracy: "State-of-the-art for many forecasting tasks",
               strengths:
@@ -732,12 +767,21 @@
 
       function populateNavigation() {
         const navLinks = document.getElementById('navLinks');
-        categories.forEach(category => {
+        const icons = [
+          'fa-object-group', // Clustering
+          'fa-robot', // Traditional ML
+          'fa-brain', // Deep Learning
+          'fa-thumbs-up', // Recommendation
+          'fa-comments', // NLP
+          'fa-chart-line' // Time Series
+        ];
+        
+        categories.forEach((category, index) => {
           const sectionId = category.name.toLowerCase().replace(/\s+/g, '-');
           const listItem = document.createElement('li');
           const link = document.createElement('a');
           link.href = `#${sectionId}`;
-          link.textContent = category.name;
+          link.innerHTML = `<i class="fas ${icons[index]} fa-fw"></i> ${category.name}`;
           link.addEventListener('click', function(e) {
             // Remove active class from all links
             document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
