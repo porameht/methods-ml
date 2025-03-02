@@ -3,57 +3,161 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Analysis and Machine Learning Methods</title>
+    <title>Methods of Data Analysis and Machine Learning</title>
     <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --light-bg: #f0f0f0;
+        --card-bg: #fff;
+        --text-color: #333;
+        --border-color: #bdc3c7;
+        --hover-color: #e0e0e0;
+      }
+
       body {
-        font-family: Arial, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
-        color: #333;
+        color: var(--text-color);
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
-        background-color: #f0f0f0;
+        background-color: var(--light-bg);
       }
-      h1 {
+
+      header {
         text-align: center;
-        color: #2c3e50;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+      }
+
+      nav {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+        overflow: hidden;
         margin-bottom: 30px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       }
+
+      nav ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      nav ul li {
+        margin: 0;
+      }
+
+      nav ul li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      nav ul li a:hover {
+        background-color: #34495e;
+      }
+
+      nav ul li a.active {
+        background-color: var(--primary-color);
+      }
+
       h2 {
-        color: #2980b9;
-        border-bottom: 2px solid #2980b9;
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
         padding-bottom: 10px;
+        margin-top: 40px;
+        scroll-margin-top: 70px;
       }
+
       .category-description {
         background-color: #ecf0f1;
         padding: 15px;
         border-radius: 5px;
         margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        font-size: 1.05rem;
       }
+
       table {
         border-collapse: collapse;
         width: 100%;
         margin: 20px 0;
-        background-color: #fff;
+        background-color: var(--card-bg);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
       }
+
       th,
       td {
-        border: 1px solid #bdc3c7;
+        border: 1px solid var(--border-color);
         padding: 12px;
         text-align: left;
       }
+
       th {
-        background-color: #3498db;
+        background-color: var(--primary-color);
         color: white;
         font-weight: bold;
       }
+
       tr:nth-child(even) {
         background-color: #f2f2f2;
       }
+
       tr:hover {
-        background-color: #e0e0e0;
+        background-color: var(--hover-color);
+        transition: background-color 0.2s;
       }
+
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        padding: 20px;
+        background-color: var(--secondary-color);
+        color: white;
+        border-radius: 5px;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+
       @media (max-width: 768px) {
         table {
           font-size: 14px;
@@ -62,13 +166,48 @@
         td {
           padding: 8px;
         }
+        h1 {
+          font-size: 1.8rem;
+        }
+        .category-description {
+          font-size: 1rem;
+        }
+        nav ul li a {
+          padding: 10px 15px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        table {
+          display: block;
+          overflow-x: auto;
+        }
+        th, td {
+          min-width: 120px;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Data Analysis and Machine Learning Methods</h1>
+    <header>
+      <h1>Data Analysis and Machine Learning Methods</h1>
+      <p class="subtitle">A comprehensive guide to various data analysis and machine learning techniques</p>
+    </header>
+
+    <nav id="navbar">
+      <ul id="navLinks">
+        <!-- Navigation links will be populated dynamically -->
+      </ul>
+    </nav>
 
     <div id="methodCategories"></div>
+
+    <button id="backToTop" class="back-to-top" title="Back to top">↑</button>
+
+    <footer>
+      <p>© 2023 Data Analysis and Machine Learning Methods Guide</p>
+      <p>For more information, check the <a href="https://github.com/porameht/methods-ml" style="color: #3498db;">GitHub repository</a></p>
+    </footer>
 
     <script>
       const categories = [
@@ -403,10 +542,157 @@
             },
           ],
         },
+        {
+          name: "Natural Language Processing Methods",
+          description:
+            "Natural Language Processing (NLP) methods focus on enabling computers to understand, interpret, and generate human language. These techniques bridge the gap between human communication and machine understanding, facilitating applications ranging from translation services to sentiment analysis and conversational AI.",
+          tableId: "nlpTable",
+          data: [
+            {
+              method: "Word2Vec",
+              responseTime: "Fast",
+              accuracy: "Good",
+              strengths:
+                "Captures semantic relationships between words, Efficient training",
+              weaknesses:
+                "Context-free representations, Limited to word-level understanding",
+              productApplication: "Search query enhancement in e-commerce",
+            },
+            {
+              method: "BERT (Bidirectional Encoder Representations from Transformers)",
+              responseTime: "Moderate",
+              accuracy: "Excellent",
+              strengths:
+                "Contextual word representations, Pre-trained on large corpora",
+              weaknesses:
+                "Computationally expensive, Limited context window",
+              productApplication: "Customer support chatbots with contextual understanding",
+            },
+            {
+              method: "GPT (Generative Pre-trained Transformer)",
+              responseTime: "Moderate to Slow",
+              accuracy: "Excellent for generation tasks",
+              strengths:
+                "Strong text generation capabilities, Transfer learning to multiple tasks",
+              weaknesses:
+                "Can generate plausible but factually incorrect content, Resource intensive",
+              productApplication: "Content creation assistants and conversational agents",
+            },
+            {
+              method: "Named Entity Recognition (NER)",
+              responseTime: "Fast",
+              accuracy: "Good to Excellent",
+              strengths:
+                "Identifies entities in text, Can be fine-tuned for specific domains",
+              weaknesses:
+                "Struggles with ambiguous entities, Requires domain-specific training",
+              productApplication: "Automated information extraction from legal documents",
+            },
+            {
+              method: "Sentiment Analysis",
+              responseTime: "Fast",
+              accuracy: "Good",
+              strengths:
+                "Determines emotional tone of text, Scalable to large datasets",
+              weaknesses:
+                "May miss nuance and sarcasm, Cultural context challenges",
+              productApplication: "Brand monitoring and reputation management",
+            },
+            {
+              method: "Text Summarization",
+              responseTime: "Moderate",
+              accuracy: "Varies by complexity",
+              strengths:
+                "Reduces content to key points, Can be extractive or abstractive",
+              weaknesses:
+                "May miss important nuances, Abstractive methods can introduce errors",
+              productApplication: "News digest creation and document summarization tools",
+            },
+            {
+              method: "Neural Machine Translation",
+              responseTime: "Fast (inference with optimized models)",
+              accuracy: "Good to Excellent",
+              strengths:
+                "End-to-end translation, Captures nuanced language patterns",
+              weaknesses:
+                "Struggles with rare languages, May produce fluent but inaccurate translations",
+              productApplication: "Real-time translation services for international business",
+            },
+          ],
+        },
+        {
+          name: "Time Series Analysis Methods",
+          description:
+            "Time series analysis methods focus on analyzing sequential data points collected over time intervals. These techniques are essential for understanding temporal patterns, making forecasts, and extracting insights from data where the time dimension is critical to the analysis.",
+          tableId: "timeSeriesTable",
+          data: [
+            {
+              method: "ARIMA (Autoregressive Integrated Moving Average)",
+              responseTime: "Fast",
+              accuracy: "Good for stationary data",
+              strengths:
+                "Well-established statistical foundation, Works well with clear patterns",
+              weaknesses:
+                "Assumes stationarity, Limited capability with complex patterns",
+              productApplication: "Financial forecasting for quarterly business planning",
+            },
+            {
+              method: "Prophet",
+              responseTime: "Fast",
+              accuracy: "Good",
+              strengths:
+                "Handles seasonality and holidays, Robust to missing data and outliers",
+              weaknesses:
+                "Can miss complex dependencies, Limited customization options",
+              productApplication: "Retail demand forecasting with seasonal variations",
+            },
+            {
+              method: "LSTM for Time Series",
+              responseTime: "Moderate to Slow",
+              accuracy: "Excellent for complex patterns",
+              strengths:
+                "Captures long-term dependencies, Handles multivariate data well",
+              weaknesses:
+                "Requires significant training data, Computationally intensive",
+              productApplication: "Energy consumption prediction for smart grids",
+            },
+            {
+              method: "Exponential Smoothing",
+              responseTime: "Very Fast",
+              accuracy: "Good for short-term forecasts",
+              strengths:
+                "Simple to implement, Adapts to recent changes quickly",
+              weaknesses:
+                "Less suitable for complex patterns, Performance degrades with longer horizons",
+              productApplication: "Inventory management in supply chain",
+            },
+            {
+              method: "Temporal Convolutional Networks (TCN)",
+              responseTime: "Moderate",
+              accuracy: "Excellent",
+              strengths:
+                "Parallelizable computation, Handles variable length sequences",
+              weaknesses:
+                "May require careful architecture design, Less mainstream than RNN approaches",
+              productApplication: "Predictive maintenance in industrial equipment",
+            },
+            {
+              method: "Temporal Fusion Transformer",
+              responseTime: "Moderate to Slow",
+              accuracy: "State-of-the-art for many forecasting tasks",
+              strengths:
+                "Handles multivariate data with mixed temporal dependencies, Combines attention mechanisms with classical approaches",
+              weaknesses:
+                "Computationally expensive to train, Complex architecture",
+              productApplication: "Multi-horizon forecasting in complex business operations",
+            },
+          ],
+        },
       ];
 
       function createMethodSection(category) {
         const section = document.createElement("section");
+        section.id = category.name.toLowerCase().replace(/\s+/g, '-');
         section.innerHTML = `
                 <h2>${category.name}</h2>
                 <p class="category-description">${category.description}</p>
@@ -444,8 +730,68 @@
         });
       }
 
+      function populateNavigation() {
+        const navLinks = document.getElementById('navLinks');
+        categories.forEach(category => {
+          const sectionId = category.name.toLowerCase().replace(/\s+/g, '-');
+          const listItem = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = `#${sectionId}`;
+          link.textContent = category.name;
+          link.addEventListener('click', function(e) {
+            // Remove active class from all links
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            // Add active class to clicked link
+            this.classList.add('active');
+          });
+          listItem.appendChild(link);
+          navLinks.appendChild(listItem);
+        });
+      }
+
+      // Handle scrolling and back to top button
+      window.onscroll = function() {
+        const backToTopButton = document.getElementById('backToTop');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+        
+        // Highlight current section in navigation
+        const sections = document.querySelectorAll('section');
+        let current = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (scrollY >= sectionTop - 100) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        document.querySelectorAll('nav a').forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === `#${current}`) {
+            a.classList.add('active');
+          }
+        });
+      };
+
+      document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
       window.onload = function () {
+        populateNavigation();
         categories.forEach(createMethodSection);
+        
+        // Set first navigation item as active initially
+        if (document.querySelector('nav a')) {
+          document.querySelector('nav a').classList.add('active');
+        }
       };
     </script>
   </body>
